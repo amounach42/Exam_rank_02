@@ -2,21 +2,21 @@
 
 void	print_bits(unsigned char octet)
 {
-	int	i = 128;
+	int	bits = 128;
 
-	while (i > 0)
+	while (bits > 0)
 	{
-		if (octet >= i)
+		if (octet >= bits)
 		{
 			write (1, "1", 1);
-			octet %= i;
-			i /= 2; 
+			octet %= bits;
+			bits /= 2; 
 
 		}
 		else 
 		{
 			write (1, "0", 1);
-			i /= 2;
+			bits /= 2;
 		}
 	}
 }
