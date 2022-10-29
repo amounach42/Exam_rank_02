@@ -10,14 +10,18 @@ int is_ws(char c)
 
 void	print_until_ws(char *line, int *i, int len)
 {
+	int flag = 0;
 	while ((*i) < len && line[*i] == 0)
 		(*i)++;
 
 	while (*i < len && line[*i] != 0)
 	{
 		write (1, line + (*i), 1);
+		flag = 1;
 		(*i)++;
 	}
+	if (flag)
+		write (1, " ", 1);
 }
 
 int main (int ac, char **av)
@@ -45,7 +49,6 @@ int main (int ac, char **av)
 		while (i < len)
 		{
 			print_until_ws(line, &i, len);
-			write (1, " ", 1);
 			i++;
 		}
 		write (1, fword, strlen(fword));
